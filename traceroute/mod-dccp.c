@@ -16,7 +16,7 @@
 
 
 #include "traceroute.h"
-
+#ifdef SOCK_DCCP
 
 #define DEF_SERVICE_CODE 	1885957735
 
@@ -288,3 +288,4 @@ static tr_module dccp_ops = {
 };
 
 TR_MODULE (dccp_ops);
+#endif /* SOCK_DCCP */

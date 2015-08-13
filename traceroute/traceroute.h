@@ -8,7 +8,7 @@
 
 #include <netinet/in.h>
 
-#include <clif.h>
+#include "libsupp/clif.h"
 
 
 union common_sockaddr {

@@ -13,7 +13,10 @@
 #include <fcntl.h>
 #include <sys/socket.h>
 #include <sys/poll.h>
-#include <netinet/icmp6.h>
+//#include <netinet/icmp6.h>
+
+#include "libsupp/icmp6.h"
+
 #include <netinet/ip_icmp.h>
 #include <netinet/in.h>
 #include <netinet/ip6.h>
@@ -24,11 +27,13 @@
 #include <linux/types.h>
 #include <linux/errqueue.h>
 
+#include <linux/icmp.h>
 /*  XXX: Remove this when things will be defined properly in netinet/ ...  */
-#include "flowlabel.h"
+//#include "flowlabel.h"
 
-#include <clif.h>
-#include "version.h"
+#include "libsupp/clif.h"
+#include "libsupp/netdb.h"
+#include "include/version.h"
 #include "traceroute.h"
 
 
@@ -186,7 +191,7 @@ static int getaddr (const char *name, sockaddr_any *addr) {
 
 	memset (&hints, 0, sizeof (hints));
 	hints.ai_family = af;
-	hints.ai_flags = AI_IDN;
+	//hints.ai_flags = AI_IDN;
 
 	ret = getaddrinfo (name, NULL, &hints, &res);
 	if (ret) {
